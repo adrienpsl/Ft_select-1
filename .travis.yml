@@ -2,6 +2,10 @@ language: c
 
 sudo: true
 
+branches:
+    only:
+        - master
+
 git:
     submodules: true
 
