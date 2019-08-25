@@ -15,6 +15,7 @@ NAME = ft_select
 SOURCES_PATH := ./src/
 
 SOURCES :=	main.c \
+		init_term.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
