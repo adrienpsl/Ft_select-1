@@ -1,6 +1,8 @@
 
 #include <termios.h>
+#include <curses.h>
 #include <unistd.h>
+#include <term.h>
 
 #include "libft.h"
 

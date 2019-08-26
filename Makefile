@@ -12,7 +12,7 @@
 
 -include ft_select.mk
 
-CFLAGS += -g -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
 
 .PHONY: all clean fclean re
 
