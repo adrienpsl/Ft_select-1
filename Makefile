@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME)	: $(OBJECTS)
 	@$(MAKE) lib -j -C $(PATH_LIB)
-	@$(CC) $(CFLAGS) $^ -o $@ $(LIB)
+	@$(CC) -ltermcap $(CFLAGS) $^ -o $@ $(LIB)
 	@printf "\n\e[38;5;136m%4s [\e[1m$(NAME) built]\n\n\e[0m"
 
 clean:

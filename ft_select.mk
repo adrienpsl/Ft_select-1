@@ -27,7 +27,7 @@ LIB = $(PATH_LIB)libft.a
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-CFALGS += -ltermcaps
+CFLAGS += -ltermcap
 
 CFLAGS += -g -fsanitize=address
 #CFLAGS += -fno-builtin -O2 -ftlo=full
