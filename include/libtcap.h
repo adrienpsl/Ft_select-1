@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_term.h                                        :+:      :+:    :+:   */
+/*   libtcap.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_TERM_H
-# define INIT_TERM_H
+#ifndef LIBTCAP_H
+# define LIBTCAP_H
 
-int	init_term(void);
+int	ft_tcinit(void);
+
+int	ft_tcoutput(int c);
 
 #endif
