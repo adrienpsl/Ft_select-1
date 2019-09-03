@@ -39,6 +39,9 @@ int	main(int argc, char **argv)
 			return (1);
 		ft_print_tables(&argv[1]);
 		tc_reset();
+		tc_underline();
+		ft_print_tables(&argv[1]);
+		tc_reset();
 		ft_print_tables(&argv[1]);
 	}
 	return (0);

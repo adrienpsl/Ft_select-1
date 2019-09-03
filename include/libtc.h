@@ -21,4 +21,6 @@ int	tc_bgcolor(int curses_color);
 
 int	tc_reset(void);
 
+int	tc_underline(void);
+
 #endif
