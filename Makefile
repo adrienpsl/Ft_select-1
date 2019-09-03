@@ -33,6 +33,9 @@ fclean:
 
 re: fclean $(NAME)
 
+test: all
+	./ft_select Makefile src libft ft_select.mk
+
 -include $(DEPENDS)
 
 %.o: %.c Makefile $(NAME).mk
