@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
 		if (tc_bgcolor(COLOR_GREEN))
 			return (1);
 		ft_print_tables(&argv[1]);
+		tc_reset();
+		ft_print_tables(&argv[1]);
 	}
 	return (0);
 }

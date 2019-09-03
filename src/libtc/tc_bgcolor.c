@@ -14,7 +14,7 @@ int	tc_bgcolor(int curses_color)
 
 	if (!(af_cap = tgetstr("AF", NULL)))
 		return (1);
-	if (tputs(tparm(af_cap, curses_color), 1, tc_output))
+	else if (tputs(tparm(af_cap, curses_color), 1, tc_output))
 		return (1);
 	else
 		return (0);

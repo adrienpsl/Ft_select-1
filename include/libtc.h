@@ -19,4 +19,6 @@ int	tc_output(int c);
 
 int	tc_bgcolor(int curses_color);
 
+int	tc_reset(void);
+
 #endif
