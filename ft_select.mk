@@ -18,6 +18,7 @@ SOURCES :=	main.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
 		libtc/tc_bgcolor.c \
+		libtc/tc_ftcolor.c \
 		libtc/tc_reset.c \
 		libtc/tc_underline.c \
 
