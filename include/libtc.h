@@ -25,4 +25,8 @@ int	tc_reset(void);
 
 int	tc_underline(void);
 
+int	tc_move(int col, int row);
+
+int	tc_clear(void);
+
 #endif

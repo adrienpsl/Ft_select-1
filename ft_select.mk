@@ -20,6 +20,8 @@ SOURCES :=	main.c \
 		libtc/tc_bgcolor.c \
 		libtc/tc_ftcolor.c \
 		libtc/tc_reset.c \
+		libtc/tc_move.c \
+		libtc/tc_clear.c \
 		libtc/tc_underline.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))

@@ -5,7 +5,6 @@
 
 #include "libft.h"
 #include "libtc.h"
-#include "error.h"
 
 void	get_window_info(void)
 {
@@ -15,13 +14,6 @@ void	get_window_info(void)
 	column_count = tgetnum("co");
 	line_count = tgetnum("li");
 	ft_printf("co:%d\nli:%d\n", column_count, line_count);
-	
-/*	char *cl_cap = tgetstr("cl", NULL);
-	tputs(cl_cap, 1, ft_tcoutput);
-*/	
-/*	char *cl_cap = tgetstr("us", NULL);
-	tputs(cl_cap, 15, ft_tcoutput);
-*/
 }
 
 int	main(int argc, char **argv)
@@ -41,6 +33,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		get_window_info();
+		tc_clear();
 		if (tc_bgcolor(COLOR_GREEN))
 			return (1);
 		ft_print_tables(&argv[1]);
@@ -49,6 +42,7 @@ int	main(int argc, char **argv)
 		ft_print_tables(&argv[1]);
 		tc_reset();
 		ft_print_tables(&argv[1]);
+		tc_move(5, 5);
 	}
 	return (0);
 }
