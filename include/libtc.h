@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libtcap.h                                          :+:      :+:    :+:   */
+/*   libtc.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBTCAP_H
-# define LIBTCAP_H
+#ifndef LIBTC_H
+# define LIBTC_H
 
-int	ft_tcinit(void);
+int	tc_init(void);
 
-int	ft_tcoutput(int c);
+int	tc_output(int c);
+
+int	tc_bgcolor(int curses_color);
 
 #endif

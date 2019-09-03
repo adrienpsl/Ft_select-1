@@ -15,8 +15,9 @@ NAME = ft_select
 SOURCES_PATH := ./src/
 
 SOURCES :=	main.c \
-		libtcap/ft_tcinit.c \
-		libtcap/ft_tcoutput.c \
+		libtc/tc_init.c \
+		libtc/tc_output.c \
+		libtc/tc_bgcolor.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 

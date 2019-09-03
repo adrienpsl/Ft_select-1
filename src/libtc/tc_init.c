@@ -5,7 +5,7 @@
 
 #include "libft.h"
 
-int	ft_tcinit(void)
+int	tc_init(void)
 {
 	char	*term_type;
 
