@@ -5,6 +5,7 @@
 
 #include "libft.h"
 #include "libtc.h"
+#include "error.h"
 
 void	get_window_info(void)
 {
@@ -31,7 +32,12 @@ int	main(int argc, char **argv)
 	if (tc_init())
 		return (1);
 	else if (argc < 2)
+	{
+		ft_dprintf(STDERR_FILENO,
+		"%s requires at least one argument.\n\nUsage:\t%s FILE|DIRECTORY...\n",
+			&argv[0][2], argv[0]);
 		return (1);
+	}
 	else
 	{
 		get_window_info();
