@@ -29,4 +29,6 @@ int	tc_move(int col, int row);
 
 int	tc_clear(void);
 
+int	tc_setnoncanonical(int fd, _Bool reset);
+
 #endif

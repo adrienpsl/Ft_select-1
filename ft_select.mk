@@ -23,6 +23,7 @@ SOURCES :=	main.c \
 		libtc/tc_move.c \
 		libtc/tc_clear.c \
 		libtc/tc_underline.c \
+		libtc/tc_setnoncanonical.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 

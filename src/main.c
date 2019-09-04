@@ -36,15 +36,15 @@ int	main(int argc, char **argv)
 		get_window_info();
 		if (tc_bgcolor(COLOR_GREEN))
 			return (1);
-		ft_print_tables(&argv[1]);
-		tc_move(0,0);
+		tc_move(1,1);
 		tc_reset();
+/*		ft_print_tables(&argv[1]);
 		tc_underline();
 		ft_print_tables(&argv[1]);
 		tc_reset();
 		ft_print_tables(&argv[1]);
 		tc_clear();
 		ft_printf("output result here\n");
-	}
+*/	}
 	return (0);
 }
