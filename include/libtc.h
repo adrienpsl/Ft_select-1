@@ -31,4 +31,20 @@ int	tc_clear(void);
 
 int	tc_setnoncanonical(int fd, _Bool reset);
 
+union	u_buffer
+{
+	unsigned int	value;
+	char		buf[sizeof(unsigned int)];
+};
+
+enum	e_key
+{
+	up = 4283163,
+	down = 4348699,
+	left = 4479771,
+	right = 4414235,
+	enter = 32,
+	space = 10
+};
+
 #endif

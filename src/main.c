@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		tc_setnoncanonical(STDIN_FILENO, 0);
 		tc_clear();
 		get_window_info();
 		if (tc_bgcolor(COLOR_GREEN))
@@ -45,6 +46,7 @@ int	main(int argc, char **argv)
 		ft_print_tables(&argv[1]);
 		tc_clear();
 		ft_printf("output result here\n");
-*/	}
+*/		tc_setnoncanonical(STDIN_FILENO, 1);
+	}
 	return (0);
 }
