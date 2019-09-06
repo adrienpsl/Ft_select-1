@@ -19,11 +19,11 @@ void	get_window_info(void)
 
 static void	fill_select_struct(struct s_select *list, char **argv, int nb)
 {
-	while (nb > 0)
+	ft_bzero(list, sizeof(struct s_select) * nb);
+	while (nb)
 	{
-		ft_putendl(argv[nb]);
-		ft_bzero(list, sizeof(struct s_select));
 		--nb;
+		list[nb].len = ft_strlen(argv[nb + 1]);
 	}
 }
 
