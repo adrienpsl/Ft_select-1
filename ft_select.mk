@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/09/06 14:07:38 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/06 14:10:38 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,9 @@ LDLIBS += -ltermcap
 
 LDFLAGS += 
 
-ifeq ($(shell uname -s),Darwin)
-	CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
-else
-	CFLAGS += -Wall -Wextra -Werror -ansi -D_POSIX_C_SOURCE
+CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
+ifneq ($(shell uname -s),Darwin)
+	CFLAGS += -ansi
 endif
 
 CFLAGS += -g -fsanitize=address
