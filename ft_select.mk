@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/09/06 14:10:38 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/06 14:41:45 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SOURCES :=	main.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-INCLUDES := -I./include/ -I./libft/include/
+INCLUDES := -I./include/ -I./libft/include/ -I./src/libtc/
 
 PATH_LIB := ./libft/
 

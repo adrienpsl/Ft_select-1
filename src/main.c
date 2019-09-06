@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <termcap.h>
 
+#include "ft_select.h"
 #include "libft.h"
 #include "libtc.h"
 
@@ -16,10 +17,19 @@ void	get_window_info(void)
 	ft_printf("co:%d\nli:%d\n", column_count, line_count);
 }
 
-int	main(int argc, char **argv)
+static void	fill_select_struct(struct s_select *list, char **argv, int nb)
 {
-	(void)argc;
-	(void)argv;
+	while (nb > 0)
+	{
+		ft_putendl(argv[nb]);
+		ft_bzero(list, sizeof(struct s_select));
+		--nb;
+	}
+}
+
+int		main(int argc, char **argv)
+{
+	struct s_select	list[argc - 1];
 
 	if (tc_init())
 		return (1);
@@ -32,21 +42,29 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		tc_setnoncanonical(STDIN_FILENO, 0);
+		fill_select_struct(list, argv, argc - 1);
+/*		tc_setnoncanonical(STDIN_FILENO, 0);
 		tc_clear();
 		get_window_info();
 		if (tc_bgcolor(COLOR_GREEN))
 			return (1);
-		tc_move(1,1);
-		tc_reset();
-/*		ft_print_tables(&argv[1]);
+		tc_move(2, 1);
+		write(1, "OK", 3);
+		tc_move(3,3);
+		write(1, "OK", 3);
+		write(1, "OK", 3);
+*/	/*	ft_print_tables(argv);
+	tc_reset();
+		tc_move(10,10);
+		ft_print_tables(&argv[1]);
 		tc_underline();
 		ft_print_tables(&argv[1]);
 		tc_reset();
 		ft_print_tables(&argv[1]);
 		tc_clear();
 		ft_printf("output result here\n");
-*/		tc_setnoncanonical(STDIN_FILENO, 1);
-	}
+		tc_setnoncanonical(STDIN_FILENO, 1);
+		tc_move(10,10);
+*/	}
 	return (0);
 }
