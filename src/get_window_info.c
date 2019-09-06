@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   get_window_info.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 17:01:05 by abarthel         ###   ########.fr       */
+/*   Created: 2019/09/06 16:55:12 by abarthel          #+#    #+#             */
+/*   Updated: 2019/09/06 17:01:34 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include <termcap.h>
 
-struct	s_select
+#include "ft_select.h"
+
+struct s_display	get_window_info(void)
 {
-	unsigned short	len:14;
-	unsigned short	col:14;
-	unsigned short	row:14;
-	_Bool			isselected:1;
-	_Bool			isunderline:1;
-};
+	int	column_count;
+	int	line_count;
 
-struct	s_display
-{
-	unsigned short	maxcol;
-	unsigned short	maxrow;
-	unsigned short	wininfo_col;
-	unsigned short	wininfo_row;
-};
-
-struct s_display	get_window_info(void);
-
-#endif
+	column_count = tgetnum("co");
+	line_count = tgetnum("li");
+/*	ft_printf("co:%d\nli:%d\n", column_count, line_count);
+*/	return ((struct s_display){.wininfo_row = line_count,
+			.wininfo_col = column_count});
+}

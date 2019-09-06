@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:45:53 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/06 17:00:41 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@
 #include "ft_select.h"
 #include "libft.h"
 #include "libtc.h"
-
-void	get_window_info(void)
-{
-	int	column_count;
-	int	line_count;
-
-	column_count = tgetnum("co");
-	line_count = tgetnum("li");
-	ft_printf("co:%d\nli:%d\n", column_count, line_count);
-}
 
 static void	fill_select_struct(struct s_select *list, char **argv, int nb)
 {
@@ -55,9 +45,9 @@ int		main(int argc, char **argv)
 	else
 	{
 		fill_select_struct(list, argv, argc - 1);
+		display = get_window_info();
 /*		tc_setnoncanonical(STDIN_FILENO, 0);
 		tc_clear();
-		get_window_info();
 		if (tc_bgcolor(COLOR_GREEN))
 			return (1);
 		tc_move(2, 1);
