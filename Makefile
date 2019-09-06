@@ -6,21 +6,19 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:03:51 by abarthel          #+#    #+#              #
-#    Updated: 2019/08/16 14:48:13 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/06 14:03:18 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 -include ft_select.mk
 
-CFLAGS += -Wall -Wextra -Werror -ansi -D_POSIX_C_SOURCE
-
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME)	: $(OBJECTS)
+$(NAME): $(OBJECTS)
 	@$(MAKE) lib -j -C $(PATH_LIB)
-	@$(CC) -ltermcap $(CFLAGS) $^ -o $@ $(LIB)
+	@$(CC) $(LDLIBS) $(LDFLAGS) $(CFLAGS) $^ -o $@ $(LIB)
 	@printf "\n\e[38;5;136m%4s [\e[1m$(NAME) built]\n\n\e[0m"
 
 clean:
@@ -34,7 +32,7 @@ fclean:
 re: fclean $(NAME)
 
 test: all
-	./ft_select Makefile src libft ft_select.mk
+	$(TEST)
 
 -include $(DEPENDS)
 

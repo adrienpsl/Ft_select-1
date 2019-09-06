@@ -6,11 +6,11 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/08/21 12:47:24 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/06 14:07:38 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_select
+NAME := ft_select
 
 SOURCES_PATH := ./src/
 
@@ -29,13 +29,23 @@ OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
 INCLUDES := -I./include/ -I./libft/include/
 
-PATH_LIB = ./libft/
+PATH_LIB := ./libft/
 
-LIB = $(PATH_LIB)libft.a
+LIB := $(PATH_LIB)libft.a
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-CFLAGS += -ltermcap
+TEST := ./ft_select Makefile src libft ft_select.mk
+
+LDLIBS += -ltermcap
+
+LDFLAGS += 
+
+ifeq ($(shell uname -s),Darwin)
+	CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
+else
+	CFLAGS += -Wall -Wextra -Werror -ansi -D_POSIX_C_SOURCE
+endif
 
 CFLAGS += -g -fsanitize=address
 #CFLAGS += -fno-builtin -O2 -ftlo=full
