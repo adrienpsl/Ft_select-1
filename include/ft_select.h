@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 15:17:38 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:43:21 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ struct	s_select
 	unsigned short	row:14;
 	_Bool			isselected:1;
 	_Bool			isunderline:1;
+};
+
+struct	s_display
+{
+	unsigned short	maxcol;
+	unsigned short	maxrow;
 };
 
 #endif

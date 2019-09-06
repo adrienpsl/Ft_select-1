@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
+/*   Updated: 2019/09/06 16:45:53 by abarthel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <curses.h>
 #include <unistd.h>
@@ -29,7 +40,8 @@ static void	fill_select_struct(struct s_select *list, char **argv, int nb)
 
 int		main(int argc, char **argv)
 {
-	struct s_select	list[argc - 1];
+	struct s_select		list[argc - 1];
+	struct s_display	display;
 
 	if (tc_init())
 		return (1);
