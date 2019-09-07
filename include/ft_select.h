@@ -24,12 +24,16 @@ struct	s_select
 
 struct	s_display
 {
-	unsigned short	maxcol;
-	unsigned short	maxrow;
-	unsigned short	wininfo_col;
-	unsigned short	wininfo_row;
+	unsigned short	wcol;
+	unsigned short	wrow;
+	unsigned short	colsize;
 };
 
-struct s_display	get_window_info(void);
+void			get_window_info(struct s_display *display);
+
+void			get_list_info(struct s_display *display,
+			struct s_select *list, int nb);
+
+_Bool			it_doesnt_fit(struct s_display *display, int nb);
 
 #endif

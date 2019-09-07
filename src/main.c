@@ -33,6 +33,7 @@ int		main(int argc, char **argv)
 	struct s_select		list[argc - 1];
 	struct s_display	display;
 
+	display = (struct s_display){0};
 	if (tc_init())
 		return (1);
 	else if (argc < 2)
@@ -45,7 +46,11 @@ int		main(int argc, char **argv)
 	else
 	{
 		fill_select_struct(list, argv, argc - 1);
-		display = get_window_info();
+		get_window_info(&display);
+		get_list_info(&display, list, argc - 1);
+		ft_printf("info col:%d, row:%d\n", display.wcol, display.wrow);
+		ft_printf("colsize:%d\n", display.colsize);
+		ft_printf("doesntfit:%d\n", it_doesnt_fit(&display, argc - 1));
 /*		tc_setnoncanonical(STDIN_FILENO, 0);
 		tc_clear();
 		if (tc_bgcolor(COLOR_GREEN))

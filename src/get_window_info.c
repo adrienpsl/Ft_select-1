@@ -14,14 +14,27 @@
 
 #include "ft_select.h"
 
-struct s_display	get_window_info(void)
+void	get_window_info(struct s_display *display)
 {
-	int	column_count;
-	int	line_count;
+	display->wcol = tgetnum("co");
+	display->wrow = tgetnum("li");
+}
 
-	column_count = tgetnum("co");
-	line_count = tgetnum("li");
-/*	ft_printf("co:%d\nli:%d\n", column_count, line_count);
-*/	return ((struct s_display){.wininfo_row = line_count,
-			.wininfo_col = column_count});
+void	get_list_info(struct s_display *display, struct s_select *list, int nb)
+{
+	display->colsize = 0;
+	while (nb)
+	{
+		--nb;
+		if (list[nb].len > display->colsize)
+			display->colsize = list[nb].len;
+	}
+}
+
+_Bool	it_doesnt_fit(struct s_display *display, int nb)
+{
+	if (nb * display->colsize <= (display->wcol * display->wrow) / display->colsize)
+		return (0);
+	else
+		return (1);
 }
