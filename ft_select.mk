@@ -36,7 +36,7 @@ INCLUDES := -I./include/ -I$(PATH_LIBFT)include/ -I./src/libtc/
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-TEST := ./ft_select Makefile src libft ft_select.mk
+TEST := ./ft_select include/* src/**/* auteur ft_select ft_select.mk src/**/* ok pl kksjjsjsj dwdsdsd d ewe  ewwe  w ew ew eew ew ew   ouihwoh qw owohu  ew * *
 
 LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
