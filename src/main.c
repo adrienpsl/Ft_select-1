@@ -47,6 +47,11 @@ static void	init_term(_Bool start)
 
 static void	key_dispatcher(int key, struct s_select *list, struct s_display *display, int *position)
 {
+	if (key == space)
+	{
+		list[*position].isselected ^= 1;
+		key = down;
+	}
 	if (key == down)
 	{
 		list[*position].isunderline = 0;
