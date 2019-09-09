@@ -37,4 +37,6 @@ void			get_list_info(struct s_display *display,
 
 _Bool			it_doesnt_fit(struct s_display *display, int nb);
 
+int			display_list(char **argv, struct s_select *list, int nb);
+
 #endif

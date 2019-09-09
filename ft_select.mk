@@ -16,6 +16,7 @@ SOURCES_PATH := ./src/
 
 SOURCES :=	main.c \
 		get_window_info.c \
+		display_list.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
 		libtc/tc_bgcolor.c \

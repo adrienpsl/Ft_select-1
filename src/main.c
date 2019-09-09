@@ -51,6 +51,11 @@ int		main(int argc, char **argv)
 		ft_printf("info col:%d, row:%d\n", display.wcol, display.wrow);
 		ft_printf("colsize:%d\n", display.colsize);
 		ft_printf("doesntfit:%d\n", it_doesnt_fit(&display, argc - 1));
+		tc_clear();
+		if (it_doesnt_fit(&display, argc - 1))
+			ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
+		else
+			display_list(argv, list, argc - 1);
 /*		tc_setnoncanonical(STDIN_FILENO, 0);
 		tc_clear();
 		if (tc_bgcolor(COLOR_GREEN))
