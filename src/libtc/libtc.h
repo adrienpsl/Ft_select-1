@@ -31,6 +31,8 @@ int	tc_keymove(void);
 
 int	tc_clear(void);
 
+int	tc_wipe(void);
+
 int	tc_setnoncanonical(int fd, _Bool reset);
 
 int	tc_placendisplay(unsigned short col, unsigned short row, int size, void *content);

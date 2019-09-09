@@ -51,10 +51,22 @@ int		ft_select(int argc, char **argv)
 	{
 		if (key == newline)
 			break ;
+	/*	else if (key == del || key == backspace)
+		{
+			list[0] = NULL;
+		}
 		ft_printf("%d\n", key);
+	*/	else if (key == up)
+		{
+			tc_move(0,0);
+		}
+		else if (key == down)
+			tc_move(2,2);
+		display_list(argv, list, &display, argc - 1);
 	}
-	tc_clear();
+	tc_wipe();
 	tc_setnoncanonical(STDIN_FILENO, 1);
+	/* output selected files */
 	return (0);
 }
 
@@ -71,7 +83,7 @@ int		main(int argc, char **argv)
 	}
 	else if (ft_select(argc, argv))
 	{
-		tc_clear();
+		tc_wipe();
 		return (1);
 	}
 	return (0);
