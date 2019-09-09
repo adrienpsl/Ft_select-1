@@ -33,7 +33,7 @@ void	get_list_info(struct s_display *display, struct s_select *list, int nb)
 
 _Bool	it_doesnt_fit(struct s_display *display, int nb)
 {
-	if (nb * display->colsize <= (display->wcol * display->wrow) / display->colsize)
+	if ((nb - 1) / display->wrow<= display->wcol / display->colsize)
 		return (0);
 	else
 		return (1);
