@@ -23,6 +23,7 @@ SOURCES :=	main.c \
 		libtc/tc_ftcolor.c \
 		libtc/tc_reset.c \
 		libtc/tc_move.c \
+		libtc/tc_keymove.c \
 		libtc/tc_clear.c \
 		libtc/tc_underline.c \
 		libtc/tc_setnoncanonical.c \

@@ -27,6 +27,8 @@ int	tc_underline(void);
 
 int	tc_move(int col, int row);
 
+int	tc_keymove(void);
+
 int	tc_clear(void);
 
 int	tc_setnoncanonical(int fd, _Bool reset);
@@ -41,12 +43,13 @@ union	u_buffer
 
 enum	e_key
 {
+	del = 2117294875,
 	up = 4283163,
 	down = 4348699,
 	left = 4479771,
 	right = 4414235,
-	enter = 32,
-	space = 10
+	space = 32,
+	newline = 10
 };
 
 #endif
