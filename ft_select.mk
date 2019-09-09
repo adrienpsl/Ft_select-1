@@ -39,7 +39,7 @@ TEST := ./ft_select Makefile src libft ft_select.mk
 
 LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
-LDFLAGS += 
+#LDFLAGS += -flto=full
 
 CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
 ifneq ($(shell uname -s),Darwin)
@@ -47,4 +47,4 @@ ifneq ($(shell uname -s),Darwin)
 endif
 
 CFLAGS += -g -fsanitize=address
-#CFLAGS += -fno-builtin -O2 -ftlo=full
+#CFLAGS += -fno-builtin -O2
