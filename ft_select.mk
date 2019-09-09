@@ -25,20 +25,19 @@ SOURCES :=	main.c \
 		libtc/tc_clear.c \
 		libtc/tc_underline.c \
 		libtc/tc_setnoncanonical.c \
+		libtc/tc_placendisplay.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
-INCLUDES := -I./include/ -I./libft/include/ -I./src/libtc/
+PATH_LIBFT := ./libft/
 
-PATH_LIB := ./libft/
-
-LIB := $(PATH_LIB)libft.a
+INCLUDES := -I./include/ -I$(PATH_LIBFT)include/ -I./src/libtc/
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
 TEST := ./ft_select Makefile src libft ft_select.mk
 
-LDLIBS += -ltermcap
+LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
 LDFLAGS += 
 

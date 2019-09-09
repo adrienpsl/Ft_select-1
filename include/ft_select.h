@@ -27,6 +27,7 @@ struct	s_display
 	unsigned short	wcol;
 	unsigned short	wrow;
 	unsigned short	colsize;
+	unsigned short	nb_element;
 };
 
 void			get_window_info(struct s_display *display);

@@ -17,17 +17,17 @@
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@$(MAKE) lib -j -C $(PATH_LIB)
-	@$(CC) $(LDLIBS) $(LDFLAGS) $(CFLAGS) $^ -o $@ $(LIB)
+	@$(MAKE) lib -j -C $(PATH_LIBFT)
+	@$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS) $(LDFLAGS)
 	@printf "\n\e[38;5;136m%4s [\e[1m$(NAME) built]\n\n\e[0m"
 
 clean:
 	@$(RM) $(OBJECTS) $(DEPENDS)
-	@$(MAKE) clean -C $(PATH_LIB)
+	@$(MAKE) clean -C $(PATH_LIBFT)
 
 fclean:
 	@$(RM) $(OBJECTS) $(DEPENDS) $(NAME)
-	@$(MAKE) fclean -C $(PATH_LIB)
+	@$(MAKE) fclean -C $(PATH_LIBFT)
 
 re: fclean $(NAME)
 
