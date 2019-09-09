@@ -122,9 +122,6 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	else if (ft_select(argc, argv))
-	{
-		tc_clear();
 		return (1);
-	}
 	return (0);
 }
