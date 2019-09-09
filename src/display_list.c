@@ -1,3 +1,5 @@
+#include <curses.h>
+
 #include "ft_select.h"
 #include "libtc.h"
 
@@ -28,7 +30,16 @@ void	display_list(char **argv, struct s_select *list, struct s_display *display,
 	while (nb)
 	{
 		--nb;
+		if (list[nb].isselected)
+		{
+			tc_bgcolor(COLOR_WHITE);
+			tc_ftcolor(COLOR_BLACK);
+		}
+		if (list[nb].isunderline)
+			tc_underline();
 		if (*argv)
 			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len, argv[nb + 1]);
+		if (list[nb].isunderline || list[nb].isselected)
+			tc_reset();
 	}
 }
