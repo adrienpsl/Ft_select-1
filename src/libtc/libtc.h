@@ -41,15 +41,4 @@ union	u_buffer
 	char		buf[sizeof(unsigned int)];
 };
 
-enum	e_key
-{
-	del = 2117294875,
-	up = 4283163,
-	down = 4348699,
-	left = 4479771,
-	right = 4414235,
-	space = 32,
-	newline = 10
-};
-
 #endif

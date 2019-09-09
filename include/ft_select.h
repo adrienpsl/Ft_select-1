@@ -30,6 +30,18 @@ struct	s_display
 	unsigned short	nb_element;
 };
 
+enum	e_key
+{
+	del = 2117294875,
+	up = 4283163,
+	down = 4348699,
+	left = 4479771,
+	right = 4414235,
+	backspace = 127,
+	space = 32,
+	newline = 10
+};
+
 void			get_window_info(struct s_display *display);
 
 void			get_list_info(struct s_display *display,
