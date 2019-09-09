@@ -39,9 +39,6 @@ int		ft_select(int argc, char **argv)
 	fill_select_struct(list, argv, argc - 1);
 	get_window_info(&display);
 	get_list_info(&display, list, argc - 1);
-	ft_printf("info col:%d, row:%d\n", display.wcol, display.wrow);
-	ft_printf("colsize:%d\n", display.colsize);
-	ft_printf("doesntfit:%d\n", it_doesnt_fit(&display, argc - 1));
 	if (it_doesnt_fit(&display, argc - 1))
 	{
 		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
@@ -52,10 +49,12 @@ int		ft_select(int argc, char **argv)
 	/* input ft here loop */
 	while ((key = tc_keymove()))
 	{
+		if (key == newline)
+			break ;
 		ft_printf("%d\n", key);
 	}
-	tc_setnoncanonical(STDIN_FILENO, 1);
 	tc_clear();
+	tc_setnoncanonical(STDIN_FILENO, 1);
 	return (0);
 }
 
@@ -71,6 +70,9 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	else if (ft_select(argc, argv))
+	{
+		tc_clear();
 		return (1);
+	}
 	return (0);
 }

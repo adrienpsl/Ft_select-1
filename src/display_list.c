@@ -21,7 +21,7 @@ static void	define_location(struct s_select *list, struct s_display *display, in
 	}
 }
 
-int	display_list(char **argv, struct s_select *list, struct s_display *display, int nb)
+void	display_list(char **argv, struct s_select *list, struct s_display *display, int nb)
 {
 	tc_clear();
 	define_location(list, display, nb);
@@ -31,5 +31,4 @@ int	display_list(char **argv, struct s_select *list, struct s_display *display, 
 		if (*argv)
 			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len, argv[nb + 1]);
 	}
-	return (1);
 }
