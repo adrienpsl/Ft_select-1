@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tc_wipe.c                                          :+:      :+:    :+:   */
+/*   tc_cursor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,15 +15,21 @@
 
 #include "libtc.h"
 
-int	tc_wipe(void)
+int	tc_cursor(_Bool visible)
 {
-	char *cd_cap;
+	char *vi_cap;
 	
-	if (tc_move(0, 0))
-		return (1);
-	if (!(cd_cap = tgetstr("cd", NULL)))
-		return (1);
-	else if (tputs(cd_cap, 1, tc_output))
+	if (visible)
+	{
+		if (!(vi_cap = tgetstr("vs", NULL)))
+			return (1);
+	}
+	else
+	{
+		if (!(vi_cap = tgetstr("vi", NULL)))
+			return (1);
+	}
+	if (tputs(vi_cap, 1, tc_output))
 		return (1);
 	else
 		return (0);

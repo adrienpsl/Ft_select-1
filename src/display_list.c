@@ -23,12 +23,9 @@ static void	define_location(struct s_select *list, struct s_display *display, in
 	}
 }
 
-#include <unistd.h>
 void	display_list(char **argv, struct s_select *list, struct s_display *display, int nb)
 {
-	tc_wipe();
 	define_location(list, display, nb);
-	sleep(1);
 	while (nb)
 	{
 		--nb;
