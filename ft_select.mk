@@ -22,17 +22,27 @@ SOURCES :=	main.c \
 		update_struct.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
+		libtc/tc_output_stderr.c \
 		libtc/tc_bgcolor.c \
+		libtc/tc_bgcolor_stderr.c \
 		libtc/tc_ftcolor.c \
+		libtc/tc_ftcolor_stderr.c \
 		libtc/tc_reset.c \
+		libtc/tc_reset_stderr.c \
 		libtc/tc_move.c \
+		libtc/tc_move_stderr.c \
 		libtc/tc_keymove.c \
 		libtc/tc_clear.c \
+		libtc/tc_clear_stderr.c \
 		libtc/tc_wipe.c \
+		libtc/tc_wipe_stderr.c \
 		libtc/tc_cursor.c \
+		libtc/tc_cursor_stderr.c \
 		libtc/tc_underline.c \
+		libtc/tc_underline_stderr.c \
 		libtc/tc_setnoncanonical.c \
 		libtc/tc_placendisplay.c \
+		libtc/tc_placendisplay_stderr.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(addprefix $(SOURCES_PATH), $(SOURCES)))
 
