@@ -12,15 +12,21 @@
 
 #include <termcap.h>
 #include <unistd.h>
+#include <sys/ioctl.h>
 
 #include "libft.h"
 #include "ft_select.h"
 
 void	get_window_info(struct s_display *display)
 {
-	display->wcol = tgetnum("co");
+	struct winsize	win;
+
+	ioctl(STDERR_FILENO, TIOCGWINSZ, &win);
+	display->wcol = win.ws_col;
+	display->wrow = win.ws_row;
+/*	display->wcol = tgetnum("co");
 	display->wrow = tgetnum("li");
-}
+*/}
 
 void	get_list_info(struct s_display *display, struct s_select *list, int nb)
 {
