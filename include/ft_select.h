@@ -51,4 +51,8 @@ _Bool			it_doesnt_fit(struct s_display *display, int nb);
 
 void			display_list(char **argv, struct s_select *list, struct s_display *display, int nb);
 
+void			display_selection(char **argv, struct s_select *list, struct s_display *display);
+
+void			checkfits(struct s_display *display, int argc);
+
 #endif

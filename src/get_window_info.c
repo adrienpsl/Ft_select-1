@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include <termcap.h>
+#include <unistd.h>
 
+#include "libft.h"
 #include "ft_select.h"
 
 void	get_window_info(struct s_display *display)
@@ -37,4 +39,13 @@ _Bool	it_doesnt_fit(struct s_display *display, int nb)
 		return (0);
 	else
 		return (1);
+}
+
+void	checkfits(struct s_display *display, int argc)
+{
+	if (it_doesnt_fit(display, argc - 1))
+	{
+		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
+		exit (1);
+	}
 }

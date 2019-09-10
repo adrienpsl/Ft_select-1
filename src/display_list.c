@@ -1,6 +1,7 @@
 #include <curses.h>
 
 #include "ft_select.h"
+#include "libft.h"
 #include "libtc.h"
 
 static void	define_location(struct s_select *list, struct s_display *display, int nb)
@@ -42,3 +43,17 @@ void	display_list(char **argv, struct s_select *list, struct s_display *display,
 			tc_reset();
 	}
 }
+
+void	display_selection(char **argv, struct s_select *list, struct s_display *display)
+{
+	int	i;
+
+	i = 0;
+	while (i < display->nb_element)
+	{
+		if (list[i].isselected)
+			ft_printf("%s\n", argv[i + 1]);
+		++i;
+	}
+}
+

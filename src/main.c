@@ -105,28 +105,6 @@ static __inline__ void	initialize_select_var(int *key, int *position, struct s_d
 	display->nb_element = argc - 1;
 }
 
-static __inline__ void	checkfits(struct s_display *display, int argc)
-{
-	if (it_doesnt_fit(display, argc - 1))
-	{
-		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
-		exit (1);
-	}
-}
-
-static void	display_selection(char **argv, struct s_select *list, struct s_display *display)
-{
-	int	i;
-
-	i = 0;
-	while (i < display->nb_element)
-	{
-		if (list[i].isselected)
-			ft_printf("%s\n", argv[i]);
-		++i;
-	}
-}
-
 int		ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
