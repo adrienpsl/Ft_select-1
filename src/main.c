@@ -97,6 +97,36 @@ static void	key_dispatcher(int key, struct s_select *list, struct s_display *dis
 	}
 }
 
+static __inline__ void	initialize_select_var(int *key, int *position, struct s_display *display, int argc)
+{
+	*key = 0;
+	*position = 0;
+	*display = (struct s_display){0};
+	display->nb_element = argc - 1;
+}
+
+static __inline__ void	checkfits(struct s_display *display, int argc)
+{
+	if (it_doesnt_fit(display, argc - 1))
+	{
+		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
+		exit (1);
+	}
+}
+
+static void	display_selection(char **argv, struct s_select *list, struct s_display *display)
+{
+	int	i;
+
+	i = 0;
+	while (i < display->nb_element)
+	{
+		if (list[i].isselected)
+			ft_printf("%s\n", argv[i]);
+		++i;
+	}
+}
+
 int		ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
@@ -104,18 +134,11 @@ int		ft_select(int argc, char **argv)
 	int	position;
 	int	key;
 
-	key = 0;
-	position = 0;
-	display = (struct s_display){0};
-	display.nb_element = argc - 1;
+	initialize_select_var(&key, &position, &display, argc);
 	fill_select_struct(list, argv, argc - 1);
 	get_window_info(&display);
 	get_list_info(&display, list, argc - 1);
-	if (it_doesnt_fit(&display, argc - 1))
-	{
-		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
-		return (1);
-	}
+	checkfits(&display, argc);
 	init_term(1);
 	list[0].isunderline = 1;
 	display_list(argv, list, &display, argc - 1);
@@ -129,7 +152,7 @@ int		ft_select(int argc, char **argv)
 		display_list(argv, list, &display, argc - 1);
 	}
 	init_term(0);
-	/* output selected files */
+	display_selection(argv, list, &display);
 	return (0);
 }
 
