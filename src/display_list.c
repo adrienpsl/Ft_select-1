@@ -50,12 +50,27 @@ void	display_list(struct s_select *list, struct s_display *display)
 void	display_selection(struct s_select *list, struct s_display *display)
 {
 	int	i;
+	int	nb;
 
+	i = 0;
+	nb = 0;
+	while (i < display->nb_element)
+	{
+		if (list[i].isselected)
+			++nb;
+		++i;
+	}
 	i = 0;
 	while (i < display->nb_element)
 	{
 		if (list[i].isselected)
-			ft_printf("%s\n", list[i].arg);
+		{
+			if (nb != 1)
+				ft_printf("%s ", list[i].arg);
+			else
+				ft_printf("%s", list[i].arg);
+			--nb;
+		}
 		++i;
 	}
 }
