@@ -25,6 +25,7 @@ static void	fill_select_struct(struct s_select *list, char **argv, int nb)
 	while (nb)
 	{
 		--nb;
+		list[nb].arg = argv[nb + 1];
 		list[nb].len = ft_strlen(argv[nb + 1]);
 	}
 }
@@ -45,13 +46,13 @@ int		ft_select(int argc, char **argv)
 	int	key;
 
 	initialize_select_var(&key, &position, &display, argc);
-	fill_select_struct(list, argv, argc - 1);
+	fill_select_struct(list, argv, display.nb_element);
 	get_window_info(&display);
-	get_list_info(&display, list, argc - 1);
+	get_list_info(&display, list, display.nb_element);
 	checkfits(&display, argc);
 	init_term(1);
 	list[0].isunderline = 1;
-	display_list(argv, list, &display, argc - 1);
+	display_list(list, &display);
 	while ((key = tc_keymove()))
 	{
 		if (key == newline)
@@ -59,10 +60,10 @@ int		ft_select(int argc, char **argv)
 		else
 			key_dispatcher(key, list, &display, &position);
 		tc_wipe();
-		display_list(argv, list, &display, argc - 1);
+		display_list(list, &display);
 	}
 	init_term(0);
-	display_selection(argv, list, &display);
+	display_selection(list, &display);
 	return (0);
 }
 

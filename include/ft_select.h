@@ -15,6 +15,7 @@
 
 struct	s_select
 {
+	char		*arg;
 	unsigned short	len:14;
 	unsigned short	col:14;
 	unsigned short	row:14;
@@ -49,9 +50,9 @@ void			get_list_info(struct s_display *display,
 
 _Bool			it_doesnt_fit(struct s_display *display, int nb);
 
-void			display_list(char **argv, struct s_select *list, struct s_display *display, int nb);
+void			display_list(struct s_select *list, struct s_display *display);
 
-void			display_selection(char **argv, struct s_select *list, struct s_display *display);
+void			display_selection(struct s_select *list, struct s_display *display);
 
 void			checkfits(struct s_display *display, int argc);
 

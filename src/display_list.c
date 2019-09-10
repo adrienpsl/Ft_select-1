@@ -4,7 +4,7 @@
 #include "libft.h"
 #include "libtc.h"
 
-static void	define_location(struct s_select *list, struct s_display *display, int nb)
+static void	define_location(struct s_select *list, struct s_display *display)
 {
 	int		i;
 	unsigned short	x;
@@ -13,7 +13,7 @@ static void	define_location(struct s_select *list, struct s_display *display, in
 	i = 0;
 	x = 0;
 	y = 0;
-	while (list && i < nb)
+	while (list && i < display->nb_element)
 	{
 		y = y % display->wrow + 1;
 		list[i].col = x * (display->colsize + 1);
@@ -24,9 +24,12 @@ static void	define_location(struct s_select *list, struct s_display *display, in
 	}
 }
 
-void	display_list(char **argv, struct s_select *list, struct s_display *display, int nb)
+void	display_list(struct s_select *list, struct s_display *display)
 {
-	define_location(list, display, nb);
+	int nb;
+
+	nb = display->nb_element;
+	define_location(list, display);
 	while (nb)
 	{
 		--nb;
@@ -37,14 +40,14 @@ void	display_list(char **argv, struct s_select *list, struct s_display *display,
 		}
 		if (list[nb].isunderline)
 			tc_underline();
-		if (*argv)
-			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len, argv[nb + 1]);
+		if (list[nb].arg)
+			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len, list[nb].arg);
 		if (list[nb].isunderline || list[nb].isselected)
 			tc_reset();
 	}
 }
 
-void	display_selection(char **argv, struct s_select *list, struct s_display *display)
+void	display_selection(struct s_select *list, struct s_display *display)
 {
 	int	i;
 
@@ -52,8 +55,7 @@ void	display_selection(char **argv, struct s_select *list, struct s_display *dis
 	while (i < display->nb_element)
 	{
 		if (list[i].isselected)
-			ft_printf("%s\n", argv[i + 1]);
+			ft_printf("%s\n", list[i].arg);
 		++i;
 	}
 }
-

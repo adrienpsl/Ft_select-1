@@ -70,11 +70,19 @@ static void	key_space(struct s_select *list, struct s_display *display, int *pos
 	key_down(list, display, position);
 }
 
+static void	key_del(struct s_select *list, struct s_display *display, int *position)
+{
+	list[*position].len = 0;
+	--display->nb_element;
+	++*position;
+	list[*position].isunderline = 1;
+}
+
 void	key_dispatcher(int key, struct s_select *list, struct s_display *display, int *position)
 {
 	if (key == space)
 		key_space(list, display, position);
-	if (key == down)
+	else if (key == down)
 		key_down(list, display, position);
 	else if (key == up)
 		key_up(list, display, position);
@@ -82,4 +90,6 @@ void	key_dispatcher(int key, struct s_select *list, struct s_display *display, i
 		key_right(list, display, position);
 	else if (key == left)
 		key_left(list, display, position);
+	else if (key == del)
+		key_del(list, display, position);
 }
