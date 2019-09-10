@@ -79,7 +79,12 @@ static void	key_dispatcher(int key, struct s_select *list, struct s_display *dis
 	{
 		list[*position].isunderline = 0;
 		if (list[*position].col == 0)
-			*position = 0;
+		{
+			if (list[*position].row <= display->nb_element % display->wrow)
+				*position = display->nb_element - (display->nb_element % display->wrow) + list[*position].row;
+			else
+				*position = display->nb_element - (display->wrow - *position) - (display->nb_element % display->wrow);
+		}
 		else
 			*position = *position - display->wrow;
 		list[*position].isunderline = 1;
