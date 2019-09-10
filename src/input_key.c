@@ -72,9 +72,7 @@ static void	key_space(struct s_select *list, struct s_display *display, int *pos
 
 static void	key_del(struct s_select *list, struct s_display *display, int *position)
 {
-	list[*position].len = 0;
-	--display->nb_element;
-	++*position;
+	update_select_struct(list, display, *position);
 	list[*position].isunderline = 1;
 }
 

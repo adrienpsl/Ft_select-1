@@ -19,6 +19,7 @@ SOURCES :=	main.c \
 		display_list.c \
 		term.c \
 		input_key.c \
+		update_struct.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
 		libtc/tc_bgcolor.c \

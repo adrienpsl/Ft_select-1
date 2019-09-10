@@ -19,23 +19,30 @@
 #include "libft.h"
 #include "libtc.h"
 
-static void	fill_select_struct(struct s_select *list, char **argv, int nb)
+static int	fill_select_struct(struct s_select *list, char **argv, int argc)
 {
-	ft_bzero(list, sizeof(struct s_select) * nb);
-	while (nb)
+	int	i;
+	int	count;
+
+	ft_bzero(list, sizeof(struct s_select) * (argc - 1));
+	i = 1;
+	count = 0;
+	while (i < argc)
 	{
-		--nb;
-		list[nb].arg = argv[nb + 1];
-		list[nb].len = ft_strlen(argv[nb + 1]);
+		while (!(list[count].len = ft_strlen(argv[i])))
+			++i;
+		list[count].arg = argv[i];
+		++i;
+		++count;
 	}
+	return (count);
 }
 
-static __inline__ void	initialize_select_var(int *key, int *position, struct s_display *display, int argc)
+static __inline__ void	initialize_select_var(int *key, int *position, struct s_display *display)
 {
 	*key = 0;
 	*position = 0;
 	*display = (struct s_display){0};
-	display->nb_element = argc - 1;
 }
 
 int		ft_select(int argc, char **argv)
@@ -45,8 +52,8 @@ int		ft_select(int argc, char **argv)
 	int	position;
 	int	key;
 
-	initialize_select_var(&key, &position, &display, argc);
-	fill_select_struct(list, argv, display.nb_element);
+	initialize_select_var(&key, &position, &display);
+	display.nb_element = fill_select_struct(list, argv, argc);
 	get_window_info(&display);
 	get_list_info(&display, list, display.nb_element);
 	checkfits(&display, argc);

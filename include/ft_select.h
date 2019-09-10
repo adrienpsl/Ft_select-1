@@ -60,4 +60,6 @@ void		init_term(_Bool start);
 
 void		key_dispatcher(int key, struct s_select *list, struct s_display *display, int *position);
 
+void		update_select_struct(struct s_select *list, struct s_display *display, int position);
+
 #endif
