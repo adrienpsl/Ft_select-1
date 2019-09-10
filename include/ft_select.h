@@ -55,4 +55,8 @@ void			display_selection(char **argv, struct s_select *list, struct s_display *d
 
 void			checkfits(struct s_display *display, int argc);
 
+void		init_term(_Bool start);
+
+void		key_dispatcher(int key, struct s_select *list, struct s_display *display, int *position);
+
 #endif

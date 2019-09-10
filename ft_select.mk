@@ -17,6 +17,8 @@ SOURCES_PATH := ./src/
 SOURCES :=	main.c \
 		get_window_info.c \
 		display_list.c \
+		term.c \
+		input_key.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
 		libtc/tc_bgcolor.c \
@@ -43,12 +45,12 @@ TEST := ./ft_select include/* src/**/* auteur ft_select ft_select.mk src/**/* ok
 
 LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
-LDFLAGS += -flto=full
+#LDFLAGS += -flto=full
 
 CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
 ifneq ($(shell uname -s),Darwin)
 	CFLAGS += -ansi
 endif
 
-#CFLAGS += -g -fsanitize=address
-CFLAGS += -fno-builtin -O2
+CFLAGS += -g -fsanitize=address
+#CFLAGS += -fno-builtin -O2
