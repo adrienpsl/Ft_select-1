@@ -35,15 +35,15 @@ void	display_list(struct s_select *list, struct s_display *display)
 		--nb;
 		if (list[nb].isselected)
 		{
-			tc_bgcolor(COLOR_WHITE);
-			tc_ftcolor(COLOR_BLACK);
+			tc_bgcolor_stderr(COLOR_WHITE);
+			tc_ftcolor_stderr(COLOR_BLACK);
 		}
 		if (list[nb].isunderline)
-			tc_underline();
+			tc_underline_stderr();
 		if (list[nb].arg)
-			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len, list[nb].arg);
+			tc_placendisplay_stderr(list[nb].col, list[nb].row, list[nb].len, list[nb].arg);
 		if (list[nb].isunderline || list[nb].isselected)
-			tc_reset();
+			tc_reset_stderr();
 	}
 }
 

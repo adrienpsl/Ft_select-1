@@ -20,7 +20,7 @@ void	update_select_struct(struct s_select *list, struct s_display *display, int 
 	}
 	else
 	{
-		tc_wipe();
+		tc_wipe_stderr();
 		init_term(0);
 		exit(0);
 	}

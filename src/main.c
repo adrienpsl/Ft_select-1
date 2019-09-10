@@ -66,7 +66,7 @@ int		ft_select(int argc, char **argv)
 			break ;
 		else
 			key_dispatcher(key, list, &display, &position);
-		tc_wipe();
+		tc_wipe_stderr();
 		display_list(list, &display);
 	}
 	init_term(0);
