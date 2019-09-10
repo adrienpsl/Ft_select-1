@@ -88,6 +88,6 @@ void	key_dispatcher(int key, struct s_select *list, struct s_display *display, i
 		key_right(list, display, position);
 	else if (key == left)
 		key_left(list, display, position);
-	else if (key == del)
+	else if (key == del || key == backspace)
 		key_del(list, display, position);
 }
