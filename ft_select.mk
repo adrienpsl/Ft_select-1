@@ -43,12 +43,12 @@ TEST := ./ft_select include/* src/**/* auteur ft_select ft_select.mk src/**/* ok
 
 LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
-#LDFLAGS += -flto=full
+LDFLAGS += -flto=full
 
 CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
 ifneq ($(shell uname -s),Darwin)
 	CFLAGS += -ansi
 endif
 
-CFLAGS += -g -fsanitize=address
-#CFLAGS += -fno-builtin -O2
+#CFLAGS += -g -fsanitize=address
+CFLAGS += -fno-builtin -O2

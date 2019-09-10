@@ -84,6 +84,8 @@ static void	key_dispatcher(int key, struct s_select *list, struct s_display *dis
 				*position = display->nb_element - (display->nb_element % display->wrow) + list[*position].row;
 			else
 				*position = display->nb_element - (display->wrow - *position) - (display->nb_element % display->wrow);
+			if (*position >= display->nb_element)
+				*position -= display->wrow;
 		}
 		else
 			*position = *position - display->wrow;
