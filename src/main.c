@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 17:50:43 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:57:25 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	fill_select_struct(struct s_select *list, char **argv, int argc)
 }
 
 static void	initialize_select_var(int *key, int *position,
-		struct s_display *display)
+			struct s_display *display)
 {
 	char		*ttyname_s;
 	extern int	g_tc_fd;
@@ -55,7 +55,7 @@ static void	initialize_select_var(int *key, int *position,
 									.nb_element = 0};
 }
 
-void	select_loop(struct s_select *list, struct s_display *display,
+void		select_loop(struct s_select *list, struct s_display *display,
 						int *key, int *position)
 {
 	display_list(list, display);

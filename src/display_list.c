@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:14:11 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 17:51:33 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:56:54 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		display_list(struct s_select *list, struct s_display *display)
 					list[nb].arg);
 		if (list[nb].isunderline || list[nb].isselected)
 			tc_reset();
-	} /* test for signals */
+	}
 	g_list = list;
 	g_display = display;
 }

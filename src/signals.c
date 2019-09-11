@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 16:16:37 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 17:52:07 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:56:40 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ void	background(int c)
 		exit(2);
 }
 
-int	set_signals(void)
+int		set_signals(void)
 {
 	if ((signal(SIGINT, SIG_IGN) == SIG_ERR)
-		|| (signal(SIGTSTP, background)	== SIG_ERR)
-		)
+			|| (signal(SIGTSTP, background) == SIG_ERR))
 		exit(2);
 	return (0);
 }
