@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 14:00:08 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 15:03:09 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,26 @@ static void	key_space(struct s_select *list, struct s_display *display,
 	key_down(list, display, position);
 }
 
+#ifdef __unix__
+
 static void	key_del(struct s_select *list, struct s_display *display,
 		int *position)
 {
 	update_select_struct(list, display, position);
 	list[*position].isunderline = 1;
 }
+
+#else
+
+static void	key_del(struct s_select *list, struct s_display *display,
+		int *position)
+{
+	update_select_struct(list, display, position);
+	list[*position].isunderline = 1;
+	tc_wipe();
+}
+
+#endif
 
 void		key_dispatcher(int key, struct s_select *list,
 		struct s_display *display, int *position)
