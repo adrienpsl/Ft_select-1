@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:14:11 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 10:14:27 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 12:58:20 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ void		display_list(struct s_select *list, struct s_display *display)
 		--nb;
 		if (list[nb].isselected)
 		{
-			tc_bgcolor_stderr(COLOR_WHITE);
-			tc_ftcolor_stderr(COLOR_BLACK);
+			tc_bgcolor(COLOR_WHITE);
+			tc_ftcolor(COLOR_BLACK);
 		}
 		if (list[nb].isunderline)
-			tc_underline_stderr();
+			tc_underline();
 		if (list[nb].arg)
-			tc_placendisplay_stderr(list[nb].col, list[nb].row, list[nb].len,
+			tc_placendisplay(list[nb].col, list[nb].row, list[nb].len,
 					list[nb].arg);
 		if (list[nb].isunderline || list[nb].isselected)
-			tc_reset_stderr();
+			tc_reset();
 	}
 }
 

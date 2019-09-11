@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:29 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:44:30 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:55:37 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	tc_underline(void)
 {
-	char *us_cap;
-       
+	char	*us_cap;
+
 	if (!(us_cap = tgetstr("us", NULL)))
 		return (1);
 	else if (tputs(us_cap, 1, tc_output))

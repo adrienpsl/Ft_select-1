@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:05 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:44:06 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:55:10 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	tc_move(int col, int row)
 {
-	char *cm_cap;
-	
+	char	*cm_cap;
+
 	if (!(cm_cap = tgetstr("cm", NULL)))
 		return (1);
 	else if (tputs(tgoto(cm_cap, col, row), 1, tc_output))

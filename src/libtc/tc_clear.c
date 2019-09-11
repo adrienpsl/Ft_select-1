@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:43:47 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:43:49 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:54:09 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	tc_clear(void)
 {
-	char *cl_cap;
-	
+	char	*cl_cap;
+
 	if (!(cl_cap = tgetstr("cl", NULL)))
 		return (1);
 	else if (tputs(cl_cap, 1, tc_output))

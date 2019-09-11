@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:43:47 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:43:49 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:54:45 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	tc_cursor(_Bool visible)
 {
 	char *vi_cap;
-	
+
 	if (visible)
 	{
 		if (!(vi_cap = tgetstr("vs", NULL)))

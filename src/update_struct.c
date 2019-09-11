@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:19:52 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 10:20:07 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:38:59 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	update_select_struct(struct s_select *list, struct s_display *display,
 	}
 	else
 	{
-		tc_wipe_stderr();
+		tc_wipe();
 		init_term(0);
 		exit(0);
 	}

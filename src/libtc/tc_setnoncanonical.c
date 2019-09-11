@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:23 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:44:24 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:55:54 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ int	tc_setnoncanonical(int fd, _Bool reset)
 	else
 		return (0);
 }
-

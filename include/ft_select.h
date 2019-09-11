@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 17:01:05 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:59:56 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 struct	s_select
 {
-	char		*arg;
+	char			*arg;
 	unsigned short	len:14;
 	unsigned short	col:14;
 	unsigned short	row:14;
@@ -43,23 +43,37 @@ enum	e_key
 	newline = 10
 };
 
-void			get_window_info(struct s_display *display);
+void	get_window_info(struct s_display *display);
 
-void			get_list_info(struct s_display *display,
-			struct s_select *list, int nb);
+void	get_list_info(struct s_display *display,
+				struct s_select *list, int nb);
 
-_Bool			it_doesnt_fit(struct s_display *display, int nb);
+_Bool	it_doesnt_fit(struct s_display *display, int nb);
 
-void			display_list(struct s_select *list, struct s_display *display);
+void	display_list(struct s_select *list, struct s_display *display);
 
-void			display_selection(struct s_select *list, struct s_display *display);
+void	display_selection(struct s_select *list, struct s_display *display);
 
-void			checkfits(struct s_display *display, int argc);
+void	checkfits(struct s_display *display, int argc);
 
-void		init_term(_Bool start);
+void	init_term(_Bool start);
 
-void		key_dispatcher(int key, struct s_select *list, struct s_display *display, int *position);
+void	key_dispatcher(int key, struct s_select *list,
+		struct s_display *display, int *position);
 
-void		update_select_struct(struct s_select *list, struct s_display *display, int *position);
+void	update_select_struct(struct s_select *list, struct s_display *display,
+		int *position);
+
+void	key_left(struct s_select *list, struct s_display *display,
+		int *position);
+
+void	key_right(struct s_select *list, struct s_display *display,
+		int *position);
+
+void	key_up(struct s_select *list, struct s_display *display,
+		int *position);
+
+void	key_down(struct s_select *list, struct s_display *display,
+		int *position);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:16 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 16:44:18 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 13:55:24 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int	tc_reset(void)
 {
-	char *me_cap;
-       
+	char	*me_cap;
+
 	if (!(me_cap = tgetstr("me", NULL)))
 		return (1);
 	else if (tputs(me_cap, 1, tc_output))

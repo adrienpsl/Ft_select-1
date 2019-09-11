@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 10:19:10 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 12:58:37 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int			ft_select(int argc, char **argv)
 			break ;
 		else
 			key_dispatcher(key, list, &display, &position);
-		tc_wipe_stderr();
+		tc_wipe();
 		display_list(list, &display);
 	}
 	init_term(0);
@@ -78,6 +78,8 @@ int			ft_select(int argc, char **argv)
 
 int			main(int argc, char **argv)
 {
+	ft_printf("%s\n", ttyname(STDOUT_FILENO));
+	return (0);
 	if (tc_init())
 		return (1);
 	else if (argc < 2)
