@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/09/06 17:01:27 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/11 10:24:50 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
 #LDFLAGS += -flto=full
 
-CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE
+CFLAGS += -Wall -Wextra -Werror -D_POSIX_C_SOURCE -std=c99
 ifneq ($(shell uname -s),Darwin)
 	CFLAGS += -ansi
 endif
