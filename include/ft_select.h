@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 13:59:56 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:05:38 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,20 @@ void	key_up(struct s_select *list, struct s_display *display,
 
 void	key_down(struct s_select *list, struct s_display *display,
 		int *position);
+
+int		set_signals(void);
+
+void	background(int c);
+
+void	select_loop(struct s_select *list, struct s_display *display,
+								int *key, int *position);
+
+struct s_select	*list;
+
+struct s_display	display;
+
+int *key;
+
+int *position;
 
 #endif

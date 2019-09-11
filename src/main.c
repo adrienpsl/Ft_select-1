@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 15:58:56 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:04:40 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,21 @@ static void	initialize_select_var(int *key, int *position,
 									.nb_element = 0};
 }
 
+void	select_loop(struct s_select *list, struct s_display *display,
+						int *key, int *position)
+{
+	display_list(list, display);
+	while ((*key = tc_keymove()))
+	{
+		if (*key == newline)
+			break ;
+		else
+			key_dispatcher(*key, list, display, position);
+		tc_wipe();
+		display_list(list, display);
+	}
+}
+
 int			ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
@@ -69,16 +84,7 @@ int			ft_select(int argc, char **argv)
 	checkfits(&display, argc);
 	init_term(1);
 	list[0].isunderline = 1;
-	display_list(list, &display);
-	while ((key = tc_keymove()))
-	{
-		if (key == newline)
-			break ;
-		else
-			key_dispatcher(key, list, &display, &position);
-		tc_wipe();
-		display_list(list, &display);
-	}
+	select_loop(list, &display, &key, &position);
 	init_term(0);
 	display_selection(list, &display);
 	return (0);
@@ -88,6 +94,7 @@ int			main(int argc, char **argv)
 {
 	extern int	g_tc_fd;
 
+	set_signals();
 	if (tc_init())
 		return (1);
 	else if (argc < 2)

@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/09/11 16:08:54 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/11 16:18:30 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SOURCES :=	main.c \
 		input_key.c \
 		input_key2.c \
 		update_struct.c \
+		signals.c \
 		libtc/tc_init.c \
 		libtc/tc_output.c \
 		libtc/tc_bgcolor.c \
