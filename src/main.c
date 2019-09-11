@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/06 17:00:41 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 10:19:10 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,21 @@ static int	fill_select_struct(struct s_select *list, char **argv, int argc)
 	return (count);
 }
 
-static __inline__ void	initialize_select_var(int *key, int *position, struct s_display *display)
+static void	initialize_select_var(int *key, int *position,
+		struct s_display *display)
 {
 	*key = 0;
 	*position = 0;
-	*display = (struct s_display){0};
+	*display = (struct s_display){.wcol = 0, .wrow = 0, .colsize = 0,
+									.nb_element = 0};
 }
 
-int		ft_select(int argc, char **argv)
+int			ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
 	struct s_display	display;
-	int	position;
-	int	key;
+	int					position;
+	int					key;
 
 	initialize_select_var(&key, &position, &display);
 	display.nb_element = fill_select_struct(list, argv, argc);
@@ -74,15 +76,15 @@ int		ft_select(int argc, char **argv)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	if (tc_init())
 		return (1);
 	else if (argc < 2)
 	{
 		ft_dprintf(STDERR_FILENO,
-				"%s requires at least one argument.\n\nUsage:\t%s FILE|DIRECTORY...\n",
-				&argv[0][2], argv[0]);
+		"%s requires at least one argument.\n\nUsage:\t%s FILE|DIRECTORY...\n",
+		&argv[0][2], argv[0]);
 		return (1);
 	}
 	else if (ft_select(argc, argv))

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display_list.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/11 10:14:11 by abarthel          #+#    #+#             */
+/*   Updated: 2019/09/11 10:14:27 by abarthel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <curses.h>
 
 #include "ft_select.h"
@@ -6,7 +18,7 @@
 
 static void	define_location(struct s_select *list, struct s_display *display)
 {
-	int		i;
+	int				i;
 	unsigned short	x;
 	unsigned short	y;
 
@@ -24,7 +36,7 @@ static void	define_location(struct s_select *list, struct s_display *display)
 	}
 }
 
-void	display_list(struct s_select *list, struct s_display *display)
+void		display_list(struct s_select *list, struct s_display *display)
 {
 	int nb;
 
@@ -41,13 +53,14 @@ void	display_list(struct s_select *list, struct s_display *display)
 		if (list[nb].isunderline)
 			tc_underline_stderr();
 		if (list[nb].arg)
-			tc_placendisplay_stderr(list[nb].col, list[nb].row, list[nb].len, list[nb].arg);
+			tc_placendisplay_stderr(list[nb].col, list[nb].row, list[nb].len,
+					list[nb].arg);
 		if (list[nb].isunderline || list[nb].isselected)
 			tc_reset_stderr();
 	}
 }
 
-void	display_selection(struct s_select *list, struct s_display *display)
+void		display_selection(struct s_select *list, struct s_display *display)
 {
 	int	i;
 	int	nb;
