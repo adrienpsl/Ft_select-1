@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 17:05:38 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:53:06 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,8 @@ void	background(int c);
 void	select_loop(struct s_select *list, struct s_display *display,
 								int *key, int *position);
 
-struct s_select	*list;
+struct s_select		*g_list;
 
-struct s_display	display;
-
-int *key;
-
-int *position;
+struct s_display	*g_display;
 
 #endif
