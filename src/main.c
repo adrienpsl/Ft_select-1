@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 18:27:08 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 19:37:52 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int			main(int argc, char **argv)
 	else if (argc < 2)
 	{
 		ft_dprintf(STDERR_FILENO,
-		"%s requires at least one argument.\n\nUsage:\t%s FILE|DIRECTORY...\n",
+		"%s requires at least one argument.\n\nUsage:\t%s ARG...\n",
 		&argv[0][2], argv[0]);
 		return (1);
 	}

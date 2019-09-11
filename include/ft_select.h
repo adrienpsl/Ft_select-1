@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 17:53:06 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 19:32:39 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ enum	e_key
 	right = 4414235,
 	backspace = 127,
 	space = 32,
+	escape = 27,
 	newline = 10
 };
 

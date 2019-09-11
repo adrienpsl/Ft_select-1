@@ -6,10 +6,11 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 15:58:37 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 19:40:45 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 #include <termcap.h>
 #include <termios.h>
@@ -31,6 +32,12 @@ static void	key_del(struct s_select *list, struct s_display *display,
 	list[*position].isunderline = 1;
 }
 
+static void	key_escape(void)
+{
+	init_term(0);
+	exit(0);
+}
+
 void		key_dispatcher(int key, struct s_select *list,
 		struct s_display *display, int *position)
 {
@@ -46,4 +53,6 @@ void		key_dispatcher(int key, struct s_select *list,
 		key_left(list, display, position);
 	else if (key == del || key == backspace)
 		key_del(list, display, position);
+	else if (key == escape)
+		key_escape();
 }
