@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 15:03:07 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/11 15:58:56 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ static void	initialize_select_var(int *key, int *position,
 									.nb_element = 0};
 }
 
-#ifdef __unix__
-
 int			ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
@@ -85,38 +83,6 @@ int			ft_select(int argc, char **argv)
 	display_selection(list, &display);
 	return (0);
 }
-
-#else
-
-int			ft_select(int argc, char **argv)
-{
-	struct s_select		list[argc - 1];
-	struct s_display	display;
-	int					position;
-	int					key;
-
-	initialize_select_var(&key, &position, &display);
-	display.nb_element = fill_select_struct(list, argv, argc);
-	get_window_info(&display);
-	get_list_info(&display, list, display.nb_element);
-	checkfits(&display, argc);
-	init_term(1);
-	list[0].isunderline = 1;
-	display_list(list, &display);
-	while ((key = tc_keymove()))
-	{
-		if (key == newline)
-			break ;
-		else
-			key_dispatcher(key, list, &display, &position);
-		display_list(list, &display);
-	}
-	init_term(0);
-	display_selection(list, &display);
-	return (0);
-}
-
-#endif
 
 int			main(int argc, char **argv)
 {
