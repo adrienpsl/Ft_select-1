@@ -6,7 +6,7 @@
 #    By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/25 14:45:47 by abarthel          #+#    #+#              #
-#    Updated: 2019/09/11 14:00:33 by abarthel         ###   ########.fr        #
+#    Updated: 2019/09/11 16:08:54 by abarthel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,6 @@ PATH_LIBFT := ./libft/
 INCLUDES := -I./include/ -I$(PATH_LIBFT)include/ -I./src/libtc/
 
 DEPENDS := $(patsubst %.c,%.d,$(addprefix $(SOURCES_PATH), $(SOURCES)))
-
-TEST := ./ft_select include/* src/**/* auteur ft_select ft_select.mk src/**/* ok pl kksjjsjsj dwdsdsd d ewe  ewwe  w ew ew eew ew ew   ouihwoh qw owohu  ew * *
 
 LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 
