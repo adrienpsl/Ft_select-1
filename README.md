@@ -1,14 +1,14 @@
-# Ft_select [![42](https://i.imgur.com/9NXfcit.jpg)](i.imgur.com/9NXfcit.jpg)
+# Ft\_select [![42](https://i.imgur.com/9NXfcit.jpg)](i.imgur.com/9NXfcit.jpg)
 
 An implementation of an **in-shell file dialog** using termcaps [a 42 project].
 
 This project aims to learn the very basics of using termcap library in C programming language.
-Ft_select is an argument viewer in the terminal that returns the user selection on the standard output.
+Ft\_select is an argument viewer in the terminal that returns the user selection on the standard output.
 
 ## Description
 
-\[WARNING\]: ft_select uses deprecated and non POSIX compliant functions such as signal(2) and termcaps.
-It may not properly work on your system.
+***[WARNING]: ft_select uses deprecated and non POSIX compliant functions such as signal(2) and termcaps.
+It may not properly work on your system. ***
 
 Ft_select displays a list of arguments in the running terminal. Pressing arrow keys on the keyboard will move the cursor throug the list of arguments passed to ft_select.
 
@@ -36,6 +36,7 @@ For instance:
 - `Ctrl + c` will end the program.
 
 Authorized functions:
+
 ```shell=
 isatty
 ttyname
@@ -63,28 +64,28 @@ signal
 
 ## Requirements
 
-	- Termcap library:
+- Termcap library:
 
-	```shell=
-	sudo apt-get install libncurses5-dev
-	```
+```shell=
+sudo apt-get install libncurses5-dev
+```
 
 ## Usage
 
-	- Clone the github repository
+- Clone the github repository
 
-	```shell=
-	git clone --recurse-submodules https://github.com/Ant0wan/Ft_select.git && cd Ft_select/ && make -j
-	```
+```shell=
+git clone --recurse-submodules https://github.com/Ant0wan/Ft_select.git && cd Ft_select/ && make -j
+```
 
-	- Build
+- Build
 
-	```shell=
-	cd Ft_select && make -j
-	```
+```shell=
+cd Ft_select && make -j
+```
 
-	- Run
+- Run, format ./ft_select + arguments
 
-	```shell=
-	./ft_select ARG|...
-	```
+```shell=
+./ft_select ARG|...
+```
