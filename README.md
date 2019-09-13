@@ -17,47 +17,74 @@ For instance:
 ./ft_select arg1 arg2 arg3 arg4 arg5
 ```
 
-- Arrow keys will move the cursor through the circular list. The cursor underlines the file - appears as an underline font.
+- `Arrow keys` will move the cursor through the circular list. The cursor underlines the file - appears as an underline font.
 
-- Space key will select/un-select one or more choices in the displayed list. A selection positions the cursor on the next element in the list if it exists. A selected file appears overlined.
+- `space` key will select/un-select one or more choices in the displayed list. A selection positions the cursor on the next element in the list if it exists. A selected file appears overlined.
 
-- Return key validates the selection. It displays the selection to the standard output. Other programs can take the output.
+- `return` key validates the selection. It displays the selection to the standard output. Other programs can take the output.
 
 - Ft_select re-organizes the display on window resize or displays a blank screen if the list does not fit the window.
 
-- ESC key exists the program.
+- `ESC` key exists the program.
 
-- Delete and Backspace keys removes an element from the list.
+- `delete` and `backspace` keys removes an element from the list.
 
-[![ft_select display](https://user-images.githubusercontent.com/25576444/28504306-aa712164-6fc9-11e7-986d-de43d853c9eb.png)
-(illustration)](user-images.githubusercontent.com/25576444/28504306-aa712164-6fc9-11e7-986d-de43d853c9eb.png)
+<img width="238" alt="screen shot 2017-07-23 at 5 05 13 pm" src="https://user-images.githubusercontent.com/25576444/28504306-aa712164-6fc9-11e7-986d-de43d853c9eb.png">
+
+- `Ctrl + z` suspends the process and move it in background. (fg will bring in back)
+
+- `Ctrl + c` will end the program.
+
+Authorized functions:
+```shell=
+isatty
+ttyname
+ttyslot
+ioctl
+getenv
+tcsetattr
+tcgetattr
+tgetent
+tgetflag
+tgetnum
+tgetstr
+tgoto
+tputs
+open
+close
+write
+malloc
+free
+read
+exit
+signal
+```
 
 
 ## Requirements
 
-- Termcap library:
+	- Termcap library:
 
-```shell=
-sudo apt-get install libncurses5-dev
-```
+	```shell=
+	sudo apt-get install libncurses5-dev
+	```
 
 ## Usage
 
-- Clone the github repository
+	- Clone the github repository
 
-```shell=
-git clone --recurse-submodules https://github.com/Ant0wan/Ft_select.git && cd Ft_select/ && make -j
-```
+	```shell=
+	git clone --recurse-submodules https://github.com/Ant0wan/Ft_select.git && cd Ft_select/ && make -j
+	```
 
-- Build
+	- Build
 
-```shell=
-cd Ft_select && make -j
-```
+	```shell=
+	cd Ft_select && make -j
+	```
 
-- Run
+	- Run
 
-```shell=
-./ft_select ARG|...
-```
-
+	```shell=
+	./ft_select ARG|...
+	```
