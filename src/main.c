@@ -101,6 +101,8 @@ int			ft_select(int argc, char **argv)
 	get_list_info(&display, list, display.nb_element);
 	init_term(1);
 	list[0].isunderline = 1;
+	g_display = &display;
+	g_list = list;
 	select_loop(list, &display);
 	init_term(0);
 	display_selection(list, &display);
