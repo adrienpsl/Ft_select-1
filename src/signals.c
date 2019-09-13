@@ -47,9 +47,21 @@ void	background(int sig)
 	ioctl(0, TIOCSTI, "\032");
 }
 
+void	quit(int sig)
+{
+	(void)sig;
+	init_term(0);
+	if ((signal(SIGINT, SIG_DFL) == SIG_ERR)
+			|| (signal(SIGTSTP, SIG_DFL) == SIG_ERR)
+			|| (signal(SIGCONT, SIG_DFL) == SIG_ERR)
+			|| (signal(SIGWINCH, SIG_DFL) == SIG_ERR))
+		exit(2);
+	exit(0);
+}
+
 int		set_signals(void)
 {
-	if ((signal(SIGINT, SIG_IGN) == SIG_ERR)
+	if ((signal(SIGINT, quit) == SIG_ERR)
 			|| (signal(SIGTSTP, background) == SIG_ERR)
 			|| (signal(SIGCONT, foreground) == SIG_ERR)
 			|| (signal(SIGWINCH, change_winsize) == SIG_ERR))
