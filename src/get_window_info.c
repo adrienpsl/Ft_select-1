@@ -40,7 +40,7 @@ void	get_list_info(struct s_display *display, struct s_select *list, int nb)
 
 _Bool	it_fits(struct s_display *display)
 {
-	if (display->nb_element / display->wrow <= display->wcol / display->colsize)
+	if (display->nb_element <= (display->wcol / (display->colsize + 1)) * display->wrow)
 		return (1);
 	else
 		return (0);
