@@ -67,7 +67,7 @@ void	background(int sig)
 	init_term(0);
 	if (signal(SIGTSTP, SIG_DFL) == SIG_ERR)
 		exit(2);
-	ioctl(0, TIOCSTI, "\032");
+	ioctl(g_tc_fd, TIOCSTI, "\032");
 }
 
 void	quit(int sig)
