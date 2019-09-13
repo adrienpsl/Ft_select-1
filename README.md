@@ -18,7 +18,7 @@ Ft_select displays a list of arguments in the running terminal. Pressing arrow k
 
 - `return` key validates the selection. It displays the selection to the standard output. Other programs can take the output.
 
-- Ft_select re-organizes the display on window resize or displays a blank screen if the list does not fit the window.
+- `SIGWINCH` i.e. window resize signal, re-organizes the display or displays a blank screen if the list does not fit the window.
 
 - `ESC` key exists the program.
 
