@@ -17,6 +17,8 @@
 #include "ft_select.h"
 #include "libtc.h"
 
+#ifdef __unix__
+
 void	change_winsize(int sig)
 {
 	(void)sig;
@@ -30,12 +32,33 @@ void	foreground(int sig)
 	(void)sig;
 	init_term(1);
 	tc_clear();
-	if (signal(SIGCONT, SIG_DFL) == SIG_ERR)
-		exit(2);
 	if (signal(SIGTSTP, background) == SIG_ERR)
 		exit(2);
 	select_loop(g_list, g_display);
 }
+
+#else
+
+void	change_winsize(int sig)
+{
+	(void)sig;
+	tc_clear();
+	get_window_info(g_display);
+	display_list(g_list, g_display);
+}
+
+void	foreground(int sig)
+{
+	(void)sig;
+	init_term(1);
+	tc_clear();
+	if (signal(SIGTSTP, background) == SIG_ERR)
+		exit(2);
+	display_list(g_list, g_display);
+}
+
+#endif
+
 
 void	background(int sig)
 {
