@@ -38,21 +38,10 @@ void	get_list_info(struct s_display *display, struct s_select *list, int nb)
 	}
 }
 
-_Bool	it_doesnt_fit(struct s_display *display, int nb)
+_Bool	it_fits(struct s_display *display)
 {
-	if ((nb - 1) / display->wrow <= display->wcol / display->colsize)
-		return (0);
-	else
+	if (display->nb_element / display->wrow <= display->wcol / display->colsize)
 		return (1);
-}
-
-void	checkfits(struct s_display *display, int argc)
-{
-	if (it_doesnt_fit(display, argc - 1))
-	{
-		ft_dprintf(STDERR_FILENO, "Cannot display list, screen too small\n");
-		tc_cursor(1);
-		tc_setnoncanonical(STDIN_FILENO, 1);
-		exit(1);
-	}
+	else
+		return (0);
 }

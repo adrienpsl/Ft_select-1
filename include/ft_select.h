@@ -49,13 +49,11 @@ void	get_window_info(struct s_display *display);
 void	get_list_info(struct s_display *display,
 				struct s_select *list, int nb);
 
-_Bool	it_doesnt_fit(struct s_display *display, int nb);
+_Bool	it_fits(struct s_display *display);
 
 void	display_list(struct s_select *list, struct s_display *display);
 
 void	display_selection(struct s_select *list, struct s_display *display);
-
-void	checkfits(struct s_display *display, int argc);
 
 void	init_term(_Bool start);
 
@@ -77,12 +75,15 @@ void	key_up(struct s_select *list, struct s_display *display,
 void	key_down(struct s_select *list, struct s_display *display,
 		int *position);
 
+void	key_escape(void);
+
 int		set_signals(void);
 
 void	background(int c);
 
-void	select_loop(struct s_select *list, struct s_display *display,
-								int *key, int *position);
+void	select_loop(struct s_select *list, struct s_display *display);
+
+int	g_position;
 
 struct s_select		*g_list;
 

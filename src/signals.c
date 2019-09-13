@@ -22,8 +22,7 @@ void	change_winsize(int sig)
 	(void)sig;
 	tc_clear();
 	get_window_info(g_display);
-	checkfits(g_display, g_display->nb_element);
-	display_list(g_list, g_display);
+	select_loop(g_list, g_display);
 }
 
 void	foreground(int sig)
@@ -35,7 +34,7 @@ void	foreground(int sig)
 		exit(2);
 	if (signal(SIGTSTP, background) == SIG_ERR)
 		exit(2);
-	display_list(g_list, g_display);
+	select_loop(g_list, g_display);
 }
 
 void	background(int sig)
@@ -46,14 +45,13 @@ void	background(int sig)
 	if (signal(SIGTSTP, SIG_DFL) == SIG_ERR)
 		exit(2);
 	ioctl(0, TIOCSTI, "\032");
-	if (signal(SIGCONT, foreground) == SIG_ERR)
-		exit(2);
 }
 
 int		set_signals(void)
 {
 	if ((signal(SIGINT, SIG_IGN) == SIG_ERR)
 			|| (signal(SIGTSTP, background) == SIG_ERR)
+			|| (signal(SIGCONT, foreground) == SIG_ERR)
 			|| (signal(SIGWINCH, change_winsize) == SIG_ERR))
 		exit(2);
 	return (0);

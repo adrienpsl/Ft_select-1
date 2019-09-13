@@ -32,7 +32,7 @@ static void	key_del(struct s_select *list, struct s_display *display,
 	list[*position].isunderline = 1;
 }
 
-static void	key_escape(void)
+void		key_escape(void)
 {
 	init_term(0);
 	exit(0);

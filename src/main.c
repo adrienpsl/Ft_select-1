@@ -39,8 +39,7 @@ static int	fill_select_struct(struct s_select *list, char **argv, int argc)
 	return (count);
 }
 
-static void	initialize_select_var(int *key, int *position,
-			struct s_display *display)
+static void	initialize_select_var(struct s_display *display)
 {
 	char		*ttyname_s;
 	extern int	g_tc_fd;
@@ -49,24 +48,45 @@ static void	initialize_select_var(int *key, int *position,
 		exit(1);
 	else if ((g_tc_fd = open(ttyname_s, O_RDWR)) == -1)
 		exit(1);
-	*key = 0;
-	*position = 0;
 	*display = (struct s_display){.wcol = 0, .wrow = 0, .colsize = 0,
 									.nb_element = 0};
+	g_position = 0;
 }
 
-void		select_loop(struct s_select *list, struct s_display *display,
-						int *key, int *position)
+void		select_loop(struct s_select *list, struct s_display *display)
 {
-	display_list(list, display);
-	while ((*key = tc_keymove()))
+	int	key;
+	int	position;
+
+	key = 0;
+	position = g_position;
+	if (it_fits(display))
 	{
-		if (*key == newline)
-			break ;
-		else
-			key_dispatcher(*key, list, display, position);
-		tc_wipe();
 		display_list(list, display);
+		while ((key = tc_keymove()))
+		{
+			if (key == newline)
+				break ;
+			else
+				key_dispatcher(key, list, display, &position);
+			tc_wipe();
+			g_position = position;
+			display_list(list, display);
+		}
+	}
+	else
+	{
+		ft_dprintf(STDERR_FILENO, "Cannot display list, the window is too small\n");
+		while ((key = tc_keymove()))
+		{
+			if (key == newline)
+			{
+				tc_wipe();
+				break ;
+			}
+			else if (key == escape)
+				key_escape();
+		}
 	}
 }
 
@@ -74,17 +94,14 @@ int			ft_select(int argc, char **argv)
 {
 	struct s_select		list[argc - 1];
 	struct s_display	display;
-	int					position;
-	int					key;
 
-	initialize_select_var(&key, &position, &display);
+	initialize_select_var(&display);
 	display.nb_element = fill_select_struct(list, argv, argc);
 	get_window_info(&display);
 	get_list_info(&display, list, display.nb_element);
-	checkfits(&display, argc);
 	init_term(1);
 	list[0].isunderline = 1;
-	select_loop(list, &display, &key, &position);
+	select_loop(list, &display);
 	init_term(0);
 	display_selection(list, &display);
 	return (0);
