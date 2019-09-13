@@ -20,6 +20,7 @@ $(NAME): $(OBJECTS)
 	@$(MAKE) lib -j -C $(PATH_LIBFT)
 	@$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS) $(LDFLAGS)
 	@printf "\n\e[38;5;136m%4s [\e[1m$(NAME) built]\n\n\e[0m"
+	@printf "\n\e[31m%s[\e[1mWARNING]: ft_select uses deprecated and non POSIX compliant functions such as signal(2) and termcaps.\nIt may not properly work on your system \e[32m$(shell uname -s).\n\n\e[0m"
 
 clean:
 	@$(RM) $(OBJECTS) $(DEPENDS)
