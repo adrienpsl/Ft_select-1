@@ -7,15 +7,10 @@ Ft\_select is an argument viewer in the terminal that returns the user selection
 
 ## Description
 
-***[WARNING]: ft_select uses deprecated and non POSIX compliant functions such as signal(2) and termcaps.
-It may not properly work on your system. ***
+**[WARNING]: ft_select uses deprecated and non POSIX compliant functions such as signal(2) and termcaps.
+It may not properly work on your system. **
 
 Ft_select displays a list of arguments in the running terminal. Pressing arrow keys on the keyboard will move the cursor throug the list of arguments passed to ft_select.
-
-For instance:
-```shell=
-./ft_select arg1 arg2 arg3 arg4 arg5
-```
 
 - `Arrow keys` will move the cursor through the circular list. The cursor underlines the file - appears as an underline font.
 
@@ -28,8 +23,6 @@ For instance:
 - `ESC` key exists the program.
 
 - `delete` and `backspace` keys removes an element from the list.
-
-<img width="238" alt="screen shot 2017-07-23 at 5 05 13 pm" src="https://user-images.githubusercontent.com/25576444/28504306-aa712164-6fc9-11e7-986d-de43d853c9eb.png">
 
 - `Ctrl + z` suspends the process and move it in background. (fg will bring in back)
 
@@ -89,3 +82,13 @@ cd Ft_select && make -j
 ```shell=
 ./ft_select ARG|...
 ```
+For instance:
+
+```shell=
+./ft_select Makefile README.md author ft_select ft_select.en.pdf libft src
+```
+
+Output:
+
+<img width="238" alt="screen shot 2017-07-23 at 5 05 13 pm" src="https://user-images.githubusercontent.com/25576444/28504306-aa712164-6fc9-11e7-986d-de43d853c9eb.png">
+
