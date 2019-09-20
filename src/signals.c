@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 16:16:37 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 19:28:36 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:03:36 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 
 #include "ft_select.h"
+#include "libft.h"
 #include "libtc.h"
 
 #ifdef __unix__
@@ -44,7 +45,10 @@ void	change_winsize(int sig)
 	(void)sig;
 	tc_clear();
 	get_window_info(g_display);
-	display_list(g_list, g_display);
+	if (it_fits(g_display))
+		display_list(g_list, g_display);
+	else
+		ft_dprintf(g_tc_fd, "Cannot display list, the window is too small");
 }
 
 void	foreground(int sig)

@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 19:37:52 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:03:20 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		select_loop(struct s_select *list, struct s_display *display)
 	}
 	else
 	{
-		ft_dprintf(STDERR_FILENO, "Cannot display list, the window is too small\n");
+		ft_dprintf(g_tc_fd, "Cannot display list, the window is too small");
 		while ((key = tc_keymove()))
 		{
 			if (key == newline)
