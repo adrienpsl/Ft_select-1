@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:44:41 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/20 09:03:20 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/23 11:28:30 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ static int	fill_select_struct(struct s_select *list, char **argv, int argc)
 	{
 		while (!(list[count].len = ft_strlen(argv[i])))
 			++i;
+		if (i >= argc)
+			break ;
 		list[count].arg = argv[i];
 		++i;
 		++count;
 	}
+	if (count <= 0)
+		exit(1);
 	return (count);
 }
 
