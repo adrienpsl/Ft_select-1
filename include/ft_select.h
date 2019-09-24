@@ -31,6 +31,12 @@ struct	s_display
 	unsigned short	nb_element;
 };
 
+struct s_sig
+{
+	int	sig;
+	void	(*f)(int);
+};
+
 enum	e_key
 {
 	del = 2117294875,
