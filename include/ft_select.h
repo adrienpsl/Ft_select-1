@@ -6,7 +6,7 @@
 /*   By: abarthel <abarthel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:40:07 by abarthel          #+#    #+#             */
-/*   Updated: 2019/09/11 19:32:39 by abarthel         ###   ########.fr       */
+/*   Updated: 2019/09/25 10:08:18 by abarthel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	key_escape(void);
 int		set_signals(void);
 
 void	background(int c);
+
+void	quit(int c);
 
 void	select_loop(struct s_select *list, struct s_display *display);
 
