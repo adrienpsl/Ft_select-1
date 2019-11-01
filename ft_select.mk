@@ -49,7 +49,7 @@ LDLIBS += -ltermcap $(PATH_LIBFT)libft.a
 #LDFLAGS += -flto=full
 
 ifneq ($(shell uname -s),Darwin)
-	CFLAGS += -ansi -Wall -Wextra -Werror -std=c99
+	CFLAGS += -ansi -Wall -Wextra -Werror -std=c99 -D_POSIX_C_SOURCE
 else
 	CFLAGS += -Wall -Wextra -Werror -D_DARWIN_C_SOURCE -std=c99
 endif

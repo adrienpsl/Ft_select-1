@@ -8,7 +8,7 @@ Ft\_select is an argument viewer in the terminal that returns the user selection
 
 ## Description
 
-[**WARNING**]: ft_select uses **deprecated** and **non POSIX compliant functions** such as signal(2) and termcaps.
+[**WARNING**]: ft_select uses **deprecated** and **non POSIX compliant functions** such as signal(2).
 It may not properly work on your system.
 
 Ft_select displays a list of arguments in the running terminal. Pressing arrow keys on the keyboard will move the cursor throug the list of arguments passed to ft_select.
